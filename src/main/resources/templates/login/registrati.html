@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/resource :: head('Lista strumenti')"></head>
+
+<header>
+    <div th:replace="fragments/navbar2 :: navbar2('strumenti')"> </div>
+</header>
+<body>
+<div class="container mt-5">
+    <h1 class="text-center mb-5">Registrazione</h1>
+        <div class="d-flex justify-content-center">
+            <form
+                    th:object="${user}"
+                    th:action="@{/registrazione}"
+                    method="post"
+            >
+                <div class="col-12 mb-3 ">
+                    <label for="nome" class="form-label">Nome</label>
+                    <input placeholder="Inserisci il tuo Nome" type="text" class="form-control" id="nome" th:field="*{firstName}" style="width: 600px; ">
+                </div>
+
+                <div class="mb-3">
+                    <label for="cognome" class="form-label">Cognome</label>
+                    <input placeholder="Inserisci il tuo Cognome" type="text" class="form-control" id="cognome" th:field="*{lastName}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="citta" class="form-label">Città</label>
+                    <input placeholder="Inserisci la tua Città" type="text" class="form-control" id="citta" name="citta" required>
+                </div>
+
+
+                <div class="mb-3">
+                    <label for="indirizzo" class="form-label">Indirizzo</label>
+                    <input placeholder="Via Roma 1" type="text" class="form-control" id="indirizzo" name="indirizzo" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="cap" class="form-label">CAP</label>
+                    <input placeholder="C.A.P" type="text" class="form-control" id="cap" name="cap" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">Indirizzo email</label>
+                    <input  placeholder="Inserisci il campo 1" type="email" class="form-control" id="email" th:field="*{email}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="cap" class="form-label">Password</label>
+                    <input placeholder="PSW" type="password" class="form-control" id="password" th:field="*{password}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="cap" class="form-label">Conferma password </label>
+                    <input placeholder="Conferma psw" type="password" class="form-control" id="confirm-password" name="cap" required>
+                </div>
+                <div class="text-center">
+                    <button id="btn" type="submit" class="btn button-acquista rounded-pill " data-bs-toggle="modal"
+                            data-bs-target="#addToCartModal">
+                        Registrati
+                    </button>
+
+                </div>
+
+            </form>
+        </div>
+
+        <p class="text-center mt-4">Hai già fatto acquisti da noi prima d'ora? <a th:href="|@{/custom-login} Accedi|"></a></p>
+
+
+    <script src="/js/main.js"></script>
+
+</div>
+
+</body>
+</html>

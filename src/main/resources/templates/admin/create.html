@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/resource :: head('Aggiungi Strumento')"> </head>
+<style>
+</style>
+<body class="bodyCreate">
+<main>
+    <div class="container text-center">
+    <h2 class="text-white mt-4 addstrumento">Aggiungi Strumento</h2>
+    </div>
+    <div class="container bg-dark containerproperty text-center mt-3">
+        <p class="text-secondary text-start ms-3">* Campi obbligatori</p>
+
+        <form
+                method="post"
+                th:action="@{/admin/create}"
+                id="create-strumento"
+                th:object="${strumento}"
+        >
+            <div class="row">
+                <div class="col-6">
+                    <label for="modello" class="form-label text-white">Modello*</label>
+                    <input type="text" class="form-control" id="modello" placeholder="Esempio: Stratocaster" th:field="*{modello}" th:errorClass="is-invalid">
+                    <div class="invalid-feedback" th:if="${#fields.hasErrors('modello')}">
+                        <ul>
+                            <li th:each="err : ${#fields.errors('modello')}" th:text="${err}"></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <label for="prezzo" class="form-label text-white">Prezzo*</label>
+                    <input type="number" min="0" value="0" step=".01" class="form-control" id="prezzo" th:field="*{prezzo}" th:errorClass="is-invalid">
+                    <div class="invalid-feedback" th:if="${#fields.hasErrors('prezzo')}">
+                        <ul>
+                            <li th:each="err : ${#fields.errors('prezzo')}" th:text="${err}"></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-6 mt-1">
+                    <label for="foto" class="form-label text-white">Foto</label>
+                    <input type="text" class="form-control" placeholder="Inserisci un URL"  id="foto" th:field="*{foto}">
+                </div>
+                <div class="col-6 mt-1">
+                    <label for="marca" class="form-label text-white">Marca*</label>
+                    <input type="text" class="form-control" id="marca" placeholder="Esempio: Fender" th:field="*{marca}" th:errorClass="is-invalid">
+                    <div class="invalid-feedback" th:if="${#fields.hasErrors('marca')}">
+                        <ul>
+                            <li th:each="err : ${#fields.errors('marca')}" th:text="${err}"></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-6 mt-2">
+                    <label for="inputQuantita" class="form-label text-white">Quantità</label>
+                    <input type="number" id="inputQuantita" class="form-control"  th:field="*{quantita}">
+                </div>
+                <div class="col-6 mt-2">
+                    <label class="form-label text-white" for="type">Categoria</label>
+                    <select id="type" class="form-select" th:field="*{categorie}">
+                        <option value="">Seleziona categoria</option>
+                        <option th:each="cl : ${categoriaList}" th:value="${cl.id}"
+                                th:text="${cl.name}"></option>
+                    </select>
+                </div>
+                <div class="col-12 mt-2">
+                    <label for="descrizione" class="form-label text-white">Descrizione</label>
+                    <textarea class="form-control" rows="5" id="descrizione" th:field="*{descrizione}"></textarea>
+                </div>
+                <div class="col-12 d-flex justify-content-around mt-2">
+                    <button type="submit" class="btn btn-primary">Aggiungi</button>
+                    <a class="btn btn-danger" th:href="@{/admin}">Annulla</a>
+                </div>
+            </div>
+        </form>
+    </div>
+    </div>
+</main>
+</body>
+</html>
+

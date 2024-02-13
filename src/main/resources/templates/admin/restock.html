@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/resource :: head('Restock')"></head>
+<body class="body">
+<div class="container text-center mt-4">
+    <h1 class="shadow p-3 mb-5 bg-white rounded">Rifornimenti</h1>
+</div>
+<div class="container text-center mt-4 shadow p-3 mb-5 bg-white rounded">
+<div class="container p-4">
+    <form
+            method="post"
+            th:action="@{/admin/assortimento/create/{id}(id=${strumento.id})}"
+            id="edit-strumento"
+            th:object="${assortimento}"
+    >
+        <div class="row p-4">
+            <div class=" col-6 mb-3">
+                <label for="inputData" class="form-label">Data odierna</label>
+                <input type="text" class="form-control" id="inputData" th:field="*{data}">
+            </div>
+            <div class="col-6 mb-3">
+                <label for="inputQuantita" class="form-label">Quantità</label>
+                <input type="number" class="form-control" id="inputQuantita" th:field="*{quantita}">
+            </div>
+            <div class="col-12 text-center">
+                <button type="submit" class="btn btn-dark">Rifornisci</button>
+            </div>
+    </form>
+</div>
+
+
+</body>
+</html>

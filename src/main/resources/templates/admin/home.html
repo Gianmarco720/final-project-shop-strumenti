@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/resource :: head('Lista strumenti')"></head>
+<body>
+<header>
+    <nav th:replace="fragments/navbar :: topNavbar('area admin')"></nav>
+</header>
+
+<main>
+    <div class="container">
+        <div class="mt-100">
+            <a th:href="@{/admin/create}" class="btn btn-primary">Aggiungi</a>
+        </div>
+        <table class="table mt-100 table-image">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Foto</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Categoria</th>
+                    <th scope="col">Prezzo &euro;</th>
+                    <th scope="col">Quantità</th>
+                    <th scope="col" class="text-center">Azioni</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="strumento : ${strumenti}">
+                    <th scope="row" th:text="${strumento.id}"></th>
+                    <td class="w-25"><img th:src="${strumento.foto}" class="img-fluid img-thumbnail" alt="Strumento"></td>
+                    <td th:text="${strumento.marca}"></td>
+                    <td th:text="${strumento.categorie.name}"></td>
+                    <td th:text="|${strumento.prezzo} &euro;|"></td>
+                    <td><span th:text="${strumento.quantitaMagazzino()}" class="badge text-bg-success" th:classappend="${strumento.quantitaMagazzino() < 20 ? 'text-bg-danger' : ''}"></span></td>
+                    <td>
+                        <a class="btn btn-primary mx-3" th:href="@{/admin/edit/{id}(id=${strumento.id})}" title="Modifica"><i class="fa-solid fa-pencil"></i></a>
+                        <a class="btn btn-primary mx-5" th:href="@{/admin/assortimento/create/{id}(id=${strumento.id})}" title="Modifica">+</a>
+
+
+                    </td>
+                    <td th:if="${strumento.quantitaMagazzino() == 0}">
+                        <form
+                                th:action="@{/admin/delete/{id}(id=${strumento.id})}"
+                                method="post"
+                                onsubmit="return confirm('Sei sicuro di voler eliminare questo strumento?')">
+                            <button type="submit" class="btn btn-danger" title="Elimina"><i class="fa-solid fa-trash-can"></i></button>
+                        </form>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
+
+
+<script type="text/javascript" th:src="@{/js/main.js}"></script>
+<footer th:replace="fragments/footer :: footer()"></footer>
+<th:block th:replace="fragments/resource :: script"></th:block>
+</body>
+</html>

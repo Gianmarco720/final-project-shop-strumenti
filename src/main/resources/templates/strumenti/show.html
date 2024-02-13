@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/resource :: head('Lista strumenti')"></head>
+<body>
+<header>
+
+    <div th:replace="fragments/navbar2 :: navbar2('strumenti')"> </div>
+</header>
+<div class="container">
+    <div class="mt-3 row " style="min-height:900px">
+        <div class="col-8 mt-2">
+            <h1 th:text="|${strumento.marca} ${strumento.modello}|"></h1>
+            <div class="col-4">
+                <div class="img-container img-fluid d-flex justify-content-center">
+                    <img th:src="${strumento.foto}" alt="foto">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="price">
+                <span class="price-symbol"> &euro; </span>
+                <span class="fw-bold" th:text="${strumento.prezzo} "></span>
+            </div>
+            <p class="p-show mb-1">Tasse e spedizione incluse</p>
+            <!--Testo che varia in base al numero di strumenti disponibili-->
+            <p th:if="${strumento.quantitaMagazzino() == 0}" class="nondisponibile m-0">Non disponibile</p>
+            <p th:unless="${strumento.quantitaMagazzino() == 0}" class="disponibile m-0" > Disponibile</p>
+            <p th:text="|Paga fino a 12 rate da: ${strumento.pagaARate()} &euro;|"></p>
+
+            <audio controls class="m-3">
+                <source src="/separation-185196.mp3" type="audio/ogg">
+                Il tuo browser non supporta l'elemento audio.
+            </audio>
+
+
+            <form
+                    method="post"
+                    th:action="@{/vendite}"
+                    th:object="${vendita}"
+                    id="create-strumento"
+                    class="row g-3"
+            >
+                <input type="hidden" th:field="*{strumento}">
+                <input type="hidden" th:field="*{data}">
+                <div class="d-flex ">
+                    <select th:classappend="${strumento.quantitaMagazzino() == 0} ? 'd-none' : ''" class="form-select rounded-pill" aria-label="Default select example" style="width:100px;position:relative;left:8px" name="quantita">
+                        <option th:each="qt : ${array}" th:text="${qt}" th:value="${qt}"></option>
+                    </select>
+                    <div class="input-group d-flex justify-content-end">
+
+                        <button th:classappend="${strumento.quantitaMagazzino() == 0} ? 'd-none' : ''" type="submit" class="btn button-acquista rounded-pill" data-bs-toggle="modal"
+                                data-bs-target="#addToCartModal" sec:authorize="isAuthenticated()">
+                            Acquista
+                            <i class="fa-solid fa-bag-shopping"></i>
+                        </button>
+
+                        <a class="btn button-acquista rounded-pill" th:classappend="${strumento.quantitaMagazzino() == 0} ? 'd-none' : ''" th:href="@{/custom-login}" sec:authorize="!isAuthenticated()">
+                            <i class="fa-solid fa-bag-shopping">
+                            </i>Fai il login per acquistare</a>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <div class="row">
+        <h1>Descrizione</h1>
+        <p th:text="${strumento.descrizione}"></p>
+    </div>
+
+
+
+</div>
+<footer th:replace="fragments/footer :: footer()"></footer>
+<th:block th:replace="fragments/resource :: script"></th:block>
+</body>
+</html>

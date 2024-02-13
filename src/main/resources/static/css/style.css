@@ -1,0 +1,391 @@
+body {
+    overflow-x: hidden;
+}
+
+.img-container img {
+    width: 700px;
+}
+
+footer {
+    margin-top: 10%
+    position: sticky;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.mt-100{
+    margin-top: 100px;
+}
+
+.img-list{
+    width: 200px;
+}
+
+.table-image {
+  td, th {
+    vertical-align: middle;
+  }
+}
+
+.img-thumbnail {
+    width: 50%;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+}
+
+.name-list-w {
+width: 300px;
+}
+
+.card {
+   width: 300px;
+   height: 400px;
+   background-color: white;
+   border-radius: 5px;
+   box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+   transform-style: preserve-3d;
+   transition: transform 0.3s ease-in-out;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   padding: 10px;
+}
+
+.card:hover {
+   transform: translateZ(-5px) scale(1.05);
+}
+
+.card-container {
+   display: flex;
+   justify-content: space-between;
+   flex-wrap: wrap;
+   margin: 80px;
+}
+
+
+.card-column {
+    margin-bottom: 30px;
+}
+
+
+.inputNumber{
+width:100px;
+border:1px solid rgb(222, 226, 230);
+border-radius:8px;
+}
+
+.a-purple:hover {
+  background-color: purple;
+  border-radius: 10px;
+}
+
+.bg-nero{
+	background-color: black;
+}
+
+.text-p:hover {
+  color: purple;
+}
+
+.text-pb:hover {
+ color: #8A2BE2;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.search-container button {
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+
+.addstrumento {
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.bodyCreate {
+    font-family: Arial, Helvetica, sans-serif;
+     background-image: url("https://static.wixstatic.com/media/7254cd_397068ca2b4649da967ae2d2e6e0ef06~mv2.jpg/v1/fill/w_640,h_400,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/7254cd_397068ca2b4649da967ae2d2e6e0ef06~mv2.jpg");
+      background-size: cover;
+}
+
+.bodyEdit {
+ font-family: Arial, Helvetica, sans-serif;
+ background-image: url("https://www.camsguitars.com/wp-content/uploads/2017/03/riparazione_chitarra_acustica_elettrificata-1024x538.jpg");
+ background-size: cover;
+ }
+
+
+.containerproperty {
+     max-width:1200px;
+     max-height: 1200px;
+    padding: 10px 10px 20px 10px;
+    border: 1px solid #BFBFBF;
+    border-radius: 50px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+}
+
+.bg-gray {
+  background-color: rgb(247, 243, 247);
+}
+
+
+
+.category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+
+.category i {
+    font-size: 48px;
+    color: #f0ad4e;
+    margin-bottom: 10px;
+}
+
+
+.category p {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    color: #333;
+    text-align: center;
+}
+
+
+.category:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+.restock-body {
+background-color:rgb(209, 200, 192);
+}
+
+.title_restock{
+display:block;
+border:none;
+}
+
+
+.stock{
+position:relative;
+left:42%;
+border:1px solid red;
+display:inline-block;
+padding:10px;
+background-color:red;
+border-radius:20px;
+}
+
+
+/* Basic styles */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #212121;
+  margin: 10px;
+}
+
+header {
+  text-align: center;
+}
+
+h1,
+h2 {
+  font-weight: normal;
+  border-bottom: 5px solid purple;
+  padding-bottom: 2px;
+  display: inline-block;
+}
+
+.bg-red {
+  background-color: #ff5252 !important;
+}
+
+
+
+html, body {
+  height: 100%;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body { font-family: sans-serif; }
+
+/* Carousel */
+
+.carousel {
+    height: 50%;
+    margin-top: 3%;
+}
+
+.flickity-page-dots {
+    bottom: 10px;
+}
+
+.carousel-cell {
+  width: 53%;
+  height: 100%;
+  margin-right: 10px;
+  border-radius: 5px;
+  counter-increment: gallery-cell;
+}
+
+.carousel-img {
+    border-radius: 8px;
+}
+
+/* /Carousel */
+
+.price{
+    line-height: 60px;
+    font-size: 60px;
+    font-weight: 700;
+}
+
+.price-symbol{
+    font-size: 40px;
+    line-height: 40px;
+    vertical-align: top;
+    position: relative;
+    top: 5px;
+}
+
+.p-show{
+    font-size: 14px;
+    color: #808080;
+}
+.disponibile{
+    color: lime;
+    font-size: 20px;
+}
+
+.nondisponibile{
+    color: red;
+    font-size: 20px;
+}
+
+
+.button-acquista {
+   background-color: black;
+   color: white;
+   border: none;
+   padding: 15px;
+   font-size: 20px;
+   cursor: pointer;
+   width: 250px;
+}
+
+.btn-search{
+background-color: black;
+   color: white;
+   border: none;
+}
+
+.btn-search:hover {
+    background-color: purple;
+}
+.button-acquista:hover {
+    background-color: purple;
+}
+
+/* Error page */
+
+.error-body h1,
+ h2 {
+    display: block;
+    border-bottom: 0;
+}
+
+.error-body hr {
+  border: none;
+  height: 3px;
+  background-color: #333;
+}
+
+.hero {
+    height: 25vw;
+    background-size: cover;
+    background-position: 50%;
+    position: relative;
+}
+
+.error-hero {
+    background-image: url("/error-hero.jpg");
+    margin-bottom: 0.625em;
+}
+
+.b-purple{
+ border-bottom: 1px solid purple;
+ }
+
+ .hover:hover {
+    cursor: pointer;
+ }
+
+.price-card__price {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.mb-900{
+margin-bottom: 900px;
+}
+
+#icon-ig:hover {
+background-color:rgb(254, 2, 149);
+}
+
+#icon-fb:hover{
+background-color:rgb(8, 102, 255);
+}
+
+/* Carosello prodotti */
+
+.carousel-2 {
+    height: 35%;
+}
+
+.carousel-cell-2 {
+  width: 28%;
+  height: 500px;
+  margin-right: 10px;
+  border-radius: 5px;
+  counter-increment: carousel-cell;
+}
+
+.form-create{
+filter:drop-shadow( 0px 0px 10px rgba(0,0,0,,0.5)):
+}
